@@ -3,21 +3,135 @@
 <head>
     <title>DaRo Store - Tienda Online</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body { font-family: Arial; max-width: 800px; margin: 0 auto; padding: 20px; }
-        header { background: #f8f9fa; padding: 20px; text-align: center; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: 'Arial', sans-serif; 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 20px;
+            background-color: #fdfdfd;
+            color: #333;
+        }
+        header { 
+            background: linear-gradient(135deg, #f8e8ee, #e8eef8); 
+            padding: 40px 20px; 
+            text-align: center; 
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+        h1 { font-size: 2.2em; color: #444; margin-bottom: 10px; }
+        h2 { color: #555; margin: 40px 0 20px 0; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .subtitulo { font-size: 1.1em; color: #666; }
+        .categoria {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .categoria h3 { color: #b06080; margin-bottom: 15px; font-size: 1.3em; }
+        .producto {
+            padding: 10px 0;
+            border-bottom: 1px dashed #eee;
+        }
+        .producto:last-child { border-bottom: none; }
+        .nombre { font-weight: bold; font-size: 1em; }
+        .precio { color: #2a8050; font-weight: bold; }
+        .descripcion { font-size: 0.9em; color: #777; margin-top: 4px; }
+        .entrega {
+            background: #f4f9f4;
+            border-left: 4px solid #60b080;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+        .contacto {
+            background: #f0f4f8;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 30px;
+        }
+        .boton-wp {
+            display: inline-block;
+            background: #25D366;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-top: 15px;
+        }
+        .boton-wp:hover { background: #1da855; }
+        .aviso { font-size: 0.85em; color: #888; margin-top: 10px; }
     </style>
 </head>
 <body>
-    <header>
-        <h1>DaRo Store</h1>
-        <p>¡Tu tienda online!</p>
-    </header>
-    <main>
-        <h2>Bienvenidos</h2>
-        <p>Próximamente aquí encontrarás todos nuestros productos.</p>
-        <p>📍 Mendoza, Argentina</p>
-    </main>
+
+<header>
+    <h1>✨ DaRo Store ✨</h1>
+    <p class="subtitulo">Tu tienda de confianza — Ropa · Accesorios · Maquillaje · Insumos</p>
+</header>
+
+<section>
+    <h2>🛍️ Nuestro Catálogo</h2>
+    <p style="margin-bottom:20px;">¡Escribime para consultar disponibilidad y precios!</p>
+
+    <!-- Categoría 1 -->
+    <div class="categoria">
+        <h3>👗 Ropa</h3>
+        <div class="producto">
+            <div class="nombre">Prendas variadas</div>
+            <div class="descripcion">Consulta talles, modelos y disponibilidad</div>
+        </div>
+    </div>
+
+    <!-- Categoría 2 -->
+    <div class="categoria">
+        <h3>💍 Accesorios</h3>
+        <div class="producto">
+            <div class="nombre">Bijouterie y complementos</div>
+            <div class="descripcion">Aros, collares, pulseras y más</div>
+        </div>
+    </div>
+
+    <!-- Categoría 3 -->
+    <div class="categoria">
+        <h3>💄 Maquillaje</h3>
+        <div class="producto">
+            <div class="nombre">Productos de belleza</div>
+            <div class="descripcion">Labiales, sombras, bases y más</div>
+        </div>
+    </div>
+
+    <!-- Categoría 4 -->
+    <div class="categoria">
+        <h3>🧴 Insumos</h3>
+        <div class="producto">
+            <div class="nombre">Diferentes insumos</div>
+            <div class="descripcion">Consultame por lo que necesites</div>
+        </div>
+    </div>
+</section>
+
+<section class="entrega">
+    <h3>📦 Opciones de Entrega</h3>
+    <p><strong>📍 Punto de encuentro:</strong> Centro de Mendoza</p>
+    <p><strong>🏠 En mi domicilio:</strong> Coordinamos previamente</p>
+    <br>
+    <p><em>✅ Al escribirnos, acordamos día y horario que te quede cómodo.</em></p>
+</section>
+
+<section class="contacto">
+    <h3>💬 ¿Te interesa algo?</h3>
+    <p>Escribime y coordinamos tu pedido</p>
+    <a class="boton-wp" href="https://wa.me/2615760288" target="_blank">📱 Enviar mensaje por WhatsApp</a>
+    <p class="aviso">Mendoza, Argentina</p>
+</section>
+
 </body>
 </html>
-"limpieza final"

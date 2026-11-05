@@ -125,6 +125,24 @@
     </div>
 </section>
 
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const buscador = document.getElementById('buscador');
+  const productos = document.querySelectorAll('.producto');
+
+  buscador.addEventListener('input', function() {
+    const texto = buscador.value.toLowerCase();
+    productos.forEach(function(item) {
+      const contenido = item.textContent.toLowerCase();
+      if (contenido.includes(texto)) {
+        item.style.display = '';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  });
+});
+</script>
 <section class="entrega">
     <h3>📦 Opciones de Entrega</h3>
     <p><strong>📍 Punto de encuentro:</strong> Centro de Mendoza</p>

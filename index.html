@@ -81,15 +81,20 @@
     <h2>🛍️ Nuestro Catálogo</h2>
     <p style="margin-bottom:20px;">¡Escribime para consultar disponibilidad y precios!</p>
 
-    <!-- 🔍 Buscador de Productos -->
+  <!-- 🔍 Buscador de toda la tienda -->
 <div style="text-align: center; margin: 25px 0;">
   <input 
     type="text" 
-    id="buscador" 
-    placeholder="🔍 Buscar productos..." 
+    id="buscadorGlobal" 
+    placeholder="🔍 Buscar en toda la tienda..." 
     style="padding: 12px 20px; width: 80%; max-width: 450px; font-size: 16px; border: 2px solid #ddd; border-radius: 25px; outline: none;"
   >
 </div>
+
+<!-- 📦 Aquí aparecerán los resultados -->
+<div id="resultadosBusqueda" style="margin: 30px 0; display: none;"></div>
+
+<!-- 🗂️ Tus categorías originales siguen aquí, debajo del buscador -->
     <!-- Categoría 1 -->
     <div class="categoria">
         <h3>👗 <a href="ropa.html" style=color:inherit;
@@ -125,24 +130,7 @@
     </div>
 </section>
 
-    <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const buscador = document.getElementById('buscador');
-  const productos = document.querySelectorAll('.producto');
-
-  buscador.addEventListener('input', function() {
-    const texto = buscador.value.toLowerCase();
-    productos.forEach(function(item) {
-      const contenido = item.textContent.toLowerCase();
-      if (contenido.includes(texto)) {
-        item.style.display = '';
-      } else {
-        item.style.display = 'none';
-      }
-    });
-  });
-});
-</script>
+  
 <section class="entrega">
     <h3>📦 Opciones de Entrega</h3>
     <p><strong>📍 Punto de encuentro:</strong> Centro de Mendoza</p>
@@ -158,5 +146,19 @@ document.addEventListener('DOMContentLoaded', function() {
     <p class="aviso">Mendoza, Argentina</p>
 </section>
 
+ <!-- 🔍 Buscador de toda la tienda -->
+<div style="text-align: center; margin: 25px 0;">
+  <input 
+    type="text" 
+    id="buscadorGlobal" 
+    placeholder="🔍 Buscar en toda la tienda..." 
+    style="padding: 12px 20px; width: 80%; max-width: 450px; font-size: 16px; border: 2px solid #ddd; border-radius: 25px; outline: none;"
+  >
+</div>
+
+<!-- 📦 Aquí aparecerán los resultados -->
+<div id="resultadosBusqueda" style="margin: 30px 0; display: none;"></div>
+
+<!-- 🗂️ Tus categorías originales siguen aquí, debajo del buscador -->
 </body>
 </html>

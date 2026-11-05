@@ -42,6 +42,15 @@
     <div class="descripcion">Excelente cobertura</div>
   <div class="precio">$4.000</div>
   </div>
+  <!-- 🔍 Buscador de Productos -->
+<div style="text-align: center; margin: 25px 0;">
+  <input 
+    type="text" 
+    id="buscador" 
+    placeholder="🔍 Buscar productos..." 
+    style="padding: 12px 20px; width: 80%; max-width: 450px; font-size: 16px; border: 2px solid #ddd; border-radius: 25px; outline: none;"
+  >
+</div>
  <!-- Producto 3 -->
     <div class="producto">
       <a href="rubor.jpeg
@@ -170,6 +179,23 @@
   <div class="precio">$</div>
 </div>
   </div>
-  
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const buscador = document.getElementById('buscador');
+  const productos = document.querySelectorAll('.producto');
+
+  buscador.addEventListener('input', function() {
+    const texto = buscador.value.toLowerCase();
+    productos.forEach(function(item) {
+      const contenido = item.textContent.toLowerCase();
+      if (contenido.includes(texto)) {
+        item.style.display = '';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  });
+});
+</script>
 </body>
 </html>

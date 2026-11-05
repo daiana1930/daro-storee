@@ -353,6 +353,37 @@ document.addEventListener('DOMContentLoaded', function() {
     resultados.innerHTML += '</div>';
   });
 });
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const params = new URLSearchParams(window.location.search);
+  const nombreBuscado = params.get('producto');
+  
+  if (nombreBuscado) {
+    const productos = document.querySelectorAll('.producto');
+    let encontrado = null;
+    
+    productos.forEach(function(prod) {
+      const nombreElem = prod.querySelector('.nombre');
+      if (nombreElem && nombreElem.textContent.trim() === nombreBuscado.trim()) {
+        encontrado = prod;
+      }
+    });
+    
+    if (encontrado) {
+      const contenedor = encontrado.parentElement;
+      contenedor.insertBefore(encontrado, contenedor.firstChild);
+      
+      encontrado.style.border = '3px solid #e91e63';
+      encontrado.style.borderRadius = '12px';
+      encontrado.style.padding = '15px';
+      encontrado.style.backgroundColor = '#fff0f6';
+      encontrado.style.boxShadow = '0 0 15px rgba(233, 30, 99, 0.2)';
+      
+      encontrado.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+});
+</script>
 </script>
   </div>
 </body>

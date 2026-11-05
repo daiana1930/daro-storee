@@ -22,6 +22,20 @@
   <a href="index.html" class="volver">← Volver al inicio</a>
 
   <h2>🎨 Maquillaje</h2>
+  <!-- 🔍 Buscador de toda la tienda -->
+<div style="text-align: center; margin: 25px 0;">
+  <input 
+    type="text" 
+    id="buscadorGlobal" 
+    placeholder="🔍 Buscar en toda la tienda..." 
+    style="padding: 12px 20px; width: 80%; max-width: 450px; font-size: 16px; border: 2px solid #ddd; border-radius: 25px; outline: none;"
+  >
+</div>
+
+<!-- 📦 Aquí aparecerán los resultados -->
+<div id="resultadosBusqueda" style="margin: 30px 0; display: none;"></div>
+
+<!-- 🗂️ Tus categorías originales siguen aquí, debajo del buscador -->
 
   <!-- Producto 1 -->
   <div class="producto">
@@ -274,6 +288,72 @@
   <div class="descripcion">C</div>
   <div class="precio">$</div>
 </div>
+  <script>
+// ==========================================
+// 📋 LISTA DE TODOS TUS PRODUCTOS
+// Agrega aquí cada producto de tu tienda
+// ==========================================
+const todosLosProductos = [
+  // ===== MAQUILLAJE =====
+  { nombre: "Rubor en barra", descripcion: "Rubor en barra distintos tonos", precio: "$4.000", imagen: "rubor.jpeg", enlace: "maquillaje.html" },
+  { nombre: "Delineador negro", descripcion: "Delineador negro", precio: "", imagen: "delineador negro.jpeg", enlace: "maquillaje.html" },
+  // ⬆️ Agrega más productos aquí copiando la línea de arriba
+
+  // ===== EJEMPLO DE OTRAS CATEGORÍAS =====
+  // { nombre: "Nombre del producto", descripcion: "detalle", precio: "$000", imagen: "foto.jpg", enlace: "ropa.html" },
+  // { nombre: "Nombre del producto", descripcion: "detalle", precio: "$000", imagen: "foto.jpg", enlace: "accesorios.html" },
+  // { nombre: "Nombre del producto", descripcion: "detalle", precio: "$000", imagen: "foto.jpg", enlace: "insumos.html" },
+];
+
+// ==========================================
+// 🔍 FUNCIÓN DE BÚSQUEDA — NO MODIFICAR
+// ==========================================
+document.addEventListener('DOMContentLoaded', function() {
+  const buscador = document.getElementById('buscadorGlobal');
+  const resultados = document.getElementById('resultadosBusqueda');
+
+  buscador.addEventListener('input', function() {
+    const texto = buscador.value.toLowerCase().trim();
+    
+    if (texto === '') {
+      resultados.style.display = 'none';
+      resultados.innerHTML = '';
+      return;
+    }
+
+    const coinciden = todosLosProductos.filter(p =>
+      p.nombre.toLowerCase().includes(texto) ||
+      p.descripcion.toLowerCase().includes(texto) ||
+      p.precio.includes(texto)
+    );
+
+    resultados.style.display = 'block';
+    
+    if (coinciden.length === 0) {
+      resultados.innerHTML = '<p style="text-align:center; color:#666;">No se encontraron productos 😊</p>';
+      return;
+    }
+
+    resultados.innerHTML = '<h3 style="margin-bottom:20px;">📦 Resultados encontrados:</h3><div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(220px, 1fr)); gap:20px;">';
+    
+    coinciden.forEach(p => {
+      resultados.innerHTML += `
+        <div style="border:1px solid #eee; border-radius:12px; padding:15px; text-align:center; background:white;">
+          <a href="${p.enlace}" style="text-decoration:none;">
+            <img src="${p.imagen}" alt="${p.nombre}" style="width:120px; height:120px; object-fit:cover; border-radius:8px; margin-bottom:10px;">
+            <h4 style="margin:5px 0; color:#333;">${p.nombre}</h4>
+            <p style="font-size:14px; color:#666; margin:5px 0;">${p.descripcion}</p>
+            ${p.precio ? `<p style="font-weight:bold; color:#e91e63; margin:8px 0;">${p.precio}</p>` : ''}
+            <span style="font-size:13px; color:#888;">👉 Ver en categoría</span>
+          </a>
+        </div>
+      `;
+    });
+
+    resultados.innerHTML += '</div>';
+  });
+});
+</script>
   </div>
 </body>
 </html>
